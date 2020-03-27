@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">City_Guide</string>
+    <string name="logo_name">Get A Way</string>
+    <string name="slogan_name">We will help you to find your way!</string>
+
+    <!--title-->
+    <string name="first_slide_title">Search Your Location</string>
+    <string name="second_slide_title">Make a call</string>
+    <string name="third_slide_title">Add missing Place</string>
+    <string name="fourth_slide_title">Sit Back And Enjoy</string>
+
+    <!--Description-->
+
+    <string name="first_slide_desc">You can seach any places newby or within the specified city.we will display specific place or all related places.. etc </string>
+    <string name="second_slide_desc">You can seach any places newby or within the specified city.we will display specific place or all related places.. etc </string>
+    <string name="third_slide_desc">You can seach any places newby or within the specified city.we will display specific place or all related places.. etc </string>
+    <string name="fourth_slide_desc">You can seach any places newby or within the specified city.we will display specific place or all related places.. etc </string>
+
+
+    <!--Button-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Let Get Started</string>
+
+</resources>
