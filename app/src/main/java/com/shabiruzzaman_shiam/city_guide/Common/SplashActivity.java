@@ -2,13 +2,10 @@ package com.shabiruzzaman_shiam.city_guide.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.media.Image;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Pair;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shabiruzzaman_shiam.city_guide.R;
+import com.shabiruzzaman_shiam.city_guide.User.UserDashboard;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -25,6 +23,8 @@ public class SplashActivity extends AppCompatActivity {
     Animation bottomAnim;
     ImageView up,down;
     TextView welcomet;
+    SharedPreferences onBoardScreen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,19 +46,37 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this,Onboard.class);
 
-                Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View,String>(up,"logo_image");
-                pairs[1] = new Pair<View,String>(down,"logo_text");
+                onBoardScreen = getSharedPreferences("onBoardScreen",MODE_PRIVATE);
+                boolean isFirstTime = onBoardScreen.getBoolean("fisrtTime",true);
+                if(isFirstTime) {
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this,pairs);
-                    startActivity(intent,options.toBundle());
+
+                    SharedPreferences.Editor editor = onBoardScreen.edit();
+                    editor.putBoolean("fisrtTime",false);
+                    editor.commit();
+
+                    Intent intent = new Intent(SplashActivity.this, Onboard.class);
+
+                    startActivity(intent);
+                    finish();
+
+
+
+                }else {
+                    Intent intent = new Intent(SplashActivity.this, UserDashboard.class);
+
+                    startActivity(intent);
+                    finish();
+
 
                 }
+
+
             }
         },SPLASH_SCREEN);
+
+
 
     }
 }

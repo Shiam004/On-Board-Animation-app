@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Common.Onboard"></activity>
         <activity android:name=".Common.OnBoardActivity" />
-        <activity android:name=".Common.dashboard" />
+        <activity android:name=".User.UserDashboard" />
         <activity android:name=".Common.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
